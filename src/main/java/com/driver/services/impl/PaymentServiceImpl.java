@@ -25,7 +25,7 @@ public class PaymentServiceImpl implements PaymentService {
         payment.setReservation(reservation);
 
         String updatedMode = mode.toUpperCase();
-        payment.setPaymentCompleted(false);
+        payment.setIsPaymentCompleted(false);
 
         if (updatedMode.equals("CASH")){
             payment.setPaymentMode(PaymentMode.CASH);
@@ -40,7 +40,7 @@ public class PaymentServiceImpl implements PaymentService {
         }
 
         spot.setOccupied(false);
-        payment.setPaymentCompleted(true);
+        payment.setIsPaymentCompleted(true);
         payment.setReservation(reservation);
 
         reservation.setPayment(payment);
