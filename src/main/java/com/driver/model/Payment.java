@@ -12,6 +12,7 @@ public class Payment {
 
     private Boolean paymentCompleted;
 
+    @Enumerated(EnumType.ORDINAL)
     private PaymentMode paymentMode;
 
     @OneToOne

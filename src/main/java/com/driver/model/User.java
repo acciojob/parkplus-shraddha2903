@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "user")
+
 public class User {
 
     @Id
@@ -21,6 +22,16 @@ public class User {
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     List<Reservation> reservationList = new ArrayList<>();
+
+    public User() {
+
+    }
+    public User(int id,String name, String phoneNumber, String password, List<Reservation> reservations)
+    {
+        this.name = name;
+        this.phoneNumber=phoneNumber;
+        this.password=password;
+    }
 
     public int getId() {
         return id;

@@ -1,7 +1,5 @@
 package com.driver.model;
 
-import org.apache.catalina.User;
-
 import javax.persistence.*;
 
 @Entity
@@ -16,7 +14,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn
-    private User user;
+    private com.driver.model.User user;
 
     @OneToOne(mappedBy = "reservation",cascade = CascadeType.ALL)
     private Payment payment;
@@ -45,7 +43,7 @@ public class Reservation {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(com.driver.model.User user) {
         this.user = user;
     }
 
