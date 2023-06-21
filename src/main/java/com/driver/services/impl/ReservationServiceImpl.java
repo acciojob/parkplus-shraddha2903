@@ -45,16 +45,15 @@ public class ReservationServiceImpl implements ReservationService {
         {
             if(spot.getOccupied().equals(Boolean.FALSE))
             {
-                if(spot.getSpotType().equals(SpotType.TWO_WHEELER))
-                {
-                    if(numberOfWheels <=2)
-                    {
-                        if(optimalPrice>spot.getPricePerHour())
-                        {
+                if(spot.getSpotType().equals(SpotType.TWO_WHEELER)) {
+                    if (numberOfWheels <= 2) {
+                        if (optimalPrice > spot.getPricePerHour()) {
                             optimalPrice = spot.getPricePerHour();
-                            optimalSpot=spot;
+                            optimalSpot = spot;
                         }
-                    } else if (spot.getSpotType().equals(SpotType.FOUR_WHEELER))
+                    }
+                }
+                else if (spot.getSpotType().equals(SpotType.FOUR_WHEELER))
                     {
                         if(numberOfWheels <=4)
                         {
@@ -72,7 +71,6 @@ public class ReservationServiceImpl implements ReservationService {
                             optimalSpot = spot;
                         }
                     }
-                }
             }
         }
         if (optimalSpot == null)
