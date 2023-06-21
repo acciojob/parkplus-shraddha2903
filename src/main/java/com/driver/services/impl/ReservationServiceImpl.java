@@ -7,7 +7,6 @@ import com.driver.repository.SpotRepository;
 import com.driver.repository.UserRepository;
 import com.driver.services.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.expression.spel.ast.Literal;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,7 +35,7 @@ public class ReservationServiceImpl implements ReservationService {
             throw new Exception("Cannot make reservation");
         }
         ParkingLot parkingLot = parkingLotRepository3.findById(parkingLotId).get();
-        List<Spot> spotList = parkingLot.getSpots();
+        List<Spot> spotList = parkingLot.getSpotList();
 
         Spot optimalSpot = null;
 

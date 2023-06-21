@@ -23,7 +23,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         ParkingLot parkingLot = new ParkingLot();
         parkingLot.setAddress(address);
         parkingLot.setName(name);
-        parkingLot.setSpots(new ArrayList<>());
+        parkingLot.setSpotList(new ArrayList<>());
         parkingLotRepository1.save(parkingLot);
         return parkingLot;
 
@@ -50,10 +50,10 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         ParkingLot parkingLot = parkingLotRepository1.findById(parkingLotId).get();
         spot.setParkingLot(parkingLot);
 
-        List<Spot> spotList = parkingLot.getSpots();
+        List<Spot> spotList = parkingLot.getSpotList();
         spotList.add(spot);
 
-        parkingLot.setSpots(spotList);
+        parkingLot.setSpotList(spotList);
         parkingLotRepository1.save(parkingLot);
 
         return spot;
@@ -68,7 +68,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
     public Spot updateSpot(int parkingLotId, int spotId, int pricePerHour) {
 
         ParkingLot parkingLot = parkingLotRepository1.findById(parkingLotId).get();
-        List<Spot>spotList = parkingLot.getSpots();
+        List<Spot>spotList = parkingLot.getSpotList();
         List<Spot> newSpotList = new ArrayList<>();
         Spot toBeChanged = null;
 
@@ -82,7 +82,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
             newSpotList.add(spot);
         }
         toBeChanged.setParkingLot(parkingLot);
-        parkingLot.setSpots(spotList);
+        parkingLot.setSpotList(spotList);
         parkingLotRepository1.save(parkingLot);
 
         return toBeChanged;
