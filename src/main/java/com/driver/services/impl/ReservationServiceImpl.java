@@ -43,7 +43,7 @@ public class ReservationServiceImpl implements ReservationService {
 
         for (Spot spot : spotList)
         {
-            if(spot.getOccupied().equals(false))
+            if(spot.getOccupied().equals(Boolean.FALSE))
             {
                 if(spot.getSpotType().equals(SpotType.TWO_WHEELER))
                 {
@@ -79,7 +79,7 @@ public class ReservationServiceImpl implements ReservationService {
         {
             throw new Exception("Cannot make reservation");
         }
-        optimalSpot.setOccupied(true);
+        optimalSpot.setOccupied(Boolean.TRUE);
         reservation.setUser(user);
         reservation.setSpot(optimalSpot);
         reservation.setNumberOfHours(timeInHours);
